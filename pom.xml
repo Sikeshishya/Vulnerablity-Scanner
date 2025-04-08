@@ -29,13 +29,22 @@
 	<properties>
 		<java.version>17</java.version>
 		<lombok.version>1.18.30</lombok.version>
+		<resilience4j.version>2.2.0</resilience4j.version>
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -46,23 +55,18 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- Resilience4j for rate limiting -->
-		<dependency>
-			<groupId>io.github.resilience4j</groupId>
-			<artifactId>resilience4j-bom</artifactId>
-			<version>${resilience4j.version}</version>
-			<type>pom</type>
-			<scope>import</scope>
-		</dependency>
 
+		<!-- Resilience4j dependencies -->
 		<dependency>
 			<groupId>io.github.resilience4j</groupId>
 			<artifactId>resilience4j-ratelimiter</artifactId>
+			<version>${resilience4j.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>io.github.resilience4j</groupId>
 			<artifactId>resilience4j-annotations</artifactId>
+			<version>${resilience4j.version}</version>
 		</dependency>
 
 		<dependency>
